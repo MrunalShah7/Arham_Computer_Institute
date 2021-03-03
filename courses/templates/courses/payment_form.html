@@ -1,0 +1,12 @@
+{% extends "user/blank.html" %}
+{% block body %}
+
+<form  method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-primary">SAVE</button>
+</form>
+
+{% endblock %}
+
+
