@@ -1,0 +1,64 @@
+{% extends "user/blank.html" %}
+{% load crispy_forms_field %}
+{% block body %}
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">New Course Form </h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form id="quickForm" novalidate="novalidate" method="post" >
+                  {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="{{ form.name_for_label }}">Name</label>
+                      {% crispy_field form.name 'class' 'form-control' 'placeholder' 'enter name'%}
+{#                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
+                  </div>
+                  <div class="form-group">
+                    <label for="{{ form.desc_for_label }}">Descriptions</label>
+                      {% crispy_field form.desc 'class' 'form-control'%}
+
+{#                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">#}
+                  </div>
+                   <div class="form-group">
+                    <label for="{{ form.desc_for_label }}">Duration:</label>
+                      {% crispy_field form.duration 'class' 'form-control'%}
+
+                    <div class="form-group">
+                    <label for="{{ form.desc_for_label }}">Fees:</label>
+                      {% crispy_field form.fees 'class' 'form-control'%}
+
+                    <div class="form-group">
+                    <label for="{{ form.desc_for_label }}">Status:</label>
+                      {% crispy_field form.status 'class' 'form-control'%}
+                    </div>
+
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                    <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+{% endblock %}

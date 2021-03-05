@@ -1,18 +1,22 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
-from .models import addmission,payment
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView
+from .models import addmission,payment,courses_master
 # Create your views here.
 
-class NewAddmission(CreateView):
-    model = addmission
-    fields = '__all__'
-    success_url = '/home/'
 
-#    def __init__(self, *args, **kwargs):
-#       super('MyForm', self).__init__(*args, **kwargs)
-#      self.fields['student'].widget.attrs.update
-
-class new_payment(CreateView):
-    model = payment
+class NewCourse(CreateView):
+    model = courses_master
     fields = '__all__'
-    success_url = '/admin/'
+    extra_context = {'page_title':'New Course'}
+
+
+
+class ViewCourse(ListView):
+    model = courses_master
+    context_object_name = "Courses"
+    ordering = ['-name']
+
+class updatecourse(UpdateView):
+    model = courses_master
+    fields = '__all__'
+

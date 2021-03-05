@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 # Create your models here.
 
 #MASTER TABLE
@@ -12,6 +13,10 @@ class courses_master(models.Model):
         ('Inactive','Inactive')
     )
     status=models.CharField(max_length=50,choices=op)
+
+
+    def get_absolute_url(self):
+        return reverse('courses_list')
 
     def __str__(self):
         return   f"Couse Name:{self.name}"

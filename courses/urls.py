@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 urlpatterns=[
-    path("new_adm/",views.NewAddmission.as_view(),name="new_course"),
-    path("new_payment/",views.new_payment.as_view(),name="new_payment")
-
+    path("new/",views.NewCourse.as_view(),name="new_course"),
+    path("view/",views.ViewCourse.as_view(),name="courses_list"),
+    path("update/<int:pk>/",views.updatecourse.as_view(),name="courses_update")
 ]

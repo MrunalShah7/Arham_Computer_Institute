@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>AdminLTE 3 | Blank Page
+  </title>
 
     {% include "user/head_css.html" %}
 </head>
@@ -688,7 +689,11 @@
               <li class="nav-item">
                 <a href="../examples/blank.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
+                    {% if page_title  %}
+                        <p>{{ page_title }}</p>
+                    {% else  %}
+                        <p> Page </p>
+                    {% endif %}
                 </a>
               </li>
               <li class="nav-item">
@@ -833,12 +838,16 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+              {% if page_title  %}
+                    <h1>{{ page_title }}</h1>
+              {% endif %}
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+                {% if page_title %}
+                    <li class="breadcrumb-item active">{{ page_title }}</li>
+                {% endif %}
             </ol>
           </div>
         </div>
