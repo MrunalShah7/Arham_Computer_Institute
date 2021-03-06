@@ -1,0 +1,15 @@
+{% extends "user/blank.html" %}
+{% block body %}
+    <div>
+        <form method="post">
+
+            {% csrf_token %}
+            <h2> Are you sure you want to delete {{ object.name }} </h2>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">Delete</button>
+                <a href="{% url 'courses_list' %}" class="btn btn-info" > cancel </a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

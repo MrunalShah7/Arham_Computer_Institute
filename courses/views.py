@@ -20,3 +20,7 @@ class updatecourse(UpdateView):
     model = courses_master
     fields = '__all__'
 
+class deletecourse(DeleteView):
+    model = courses_master
+    success_url = '/course/view'
+
